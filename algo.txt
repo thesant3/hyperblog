@@ -1,0 +1,27 @@
+Primeros comandos de git
+
+Si por algún motivo te equivocaste en el nombre o email que configuraste al principio, lo puedes modificar de la siguiente manera:
+git config --global --replace-all user.name “Aquí va tu nombre modificado”
+O si lo deseas eliminar y añadir uno nuevo
+git config --global --unset-all user.name :Elimina el nombre del usuario
+git config --global --add user.name “Aquí va tu nombre”
+config --list --show-origin: Muestra donde se encuentran las configuraciones guardadas
+
+
+git status: indica el estado de los archivos en el git
+git add: permite trackear los archivos (envía el documento con los cambios realizados al stagin area para realizar el commit)
+git rm --cached nombre_del_archivo.txt: para eliminar el archivo del staged(ram)
+git rm nombre_del_archivo.txt: para eliminar del repositorio
+git commit -m "...": Realiza el commit del documento
+git log: desplega el historial de commits realizados
+git log --stat muestra cambios más específicos
+
+--- En caso de cambiar la consola por mensajes de error, salir con shift escapee zz (para windows), control + o enter control + x(para linux)
+
+git reset --soft [SHA 1]: elimina los cambios hasta el staging area
+git reset --mixed [SHA 1]: elimina los cambios hasta el working area
+git reset --hard [SHA 1]: regresa hasta el commit del [SHA-1]
+Donde el SHA-1 es el identificador del commit
+
+git reset HEAD
+
