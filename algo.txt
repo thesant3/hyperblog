@@ -65,4 +65,18 @@ git checkout rama-o-id-commit: Nos lleva a cualquier commit sin borrar los commi
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+git mergetool: arranca una herramienta visual en consola permitiendo así resolver conflictos.
+git merge abort: aborta el merge en proceso.
+git push: para enviar cambios al repositorio remoto se utiliza.
+git fetch: Para actualizar el repositorio local se hace uso del comando .
+git config --global init.defaultBranch main.
+git branch -M main.
+
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+personal access token classic:
+	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
+fine-grained personal access token:
+	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
+	
 
