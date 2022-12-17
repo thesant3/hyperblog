@@ -75,8 +75,23 @@ git branch -M main.
 -----------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------
 personal access token classic:
-	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
+	 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 
 fine-grained personal access token:
-	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
 	
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+github ya no maneja la rama 'master' como rama principal por defecto, ahora esta rama se llama 'main' por lo cual es necesario configurar la rama por defecto en git como 'main'.
+	-cambiar el nombre de una rama master: git branch -m <nombre_de_rama> 
+	-cambiar el nombre de la rama master por defecto: 	git config --global init.defaultBranch <nombre_de_rama>
 
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+-git merge <nombre_rama>: fusiona la rama nombre_rama con la rama en la cual se está situado en el momento.
+-git merge <nombre_rama> --allow-unrelated-histories: obliga a fusionar las ramas con el merge 
+-git remote add origin URL: conecta el reposotirio de la URL con el repositorio local, la tiempo que da origen del repositorio remoto.
+-git remote -v: lista las conexiones existentes. Donde realizar fetch y push.
+-git remote remove origin: Elimina la conexión con un repositorio remoto.
+-git push origin <nombre_rama>: envía la rama del repositorio local, al repositorio remoto.
+-git push origin nombre_rama> --tags: envías los tags de la rama al repositorio remoto
+-git pull origin <nombre_rama>: Descarga los cambios del repositorio remoto y los fusiona automaticamente con la rama espejo del repositorio local
+-git pull origin <nombre_rama> --allow-unrelated-histories: realiza la fusión clásica del pull a fuerza.
