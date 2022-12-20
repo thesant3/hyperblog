@@ -95,3 +95,21 @@ github ya no maneja la rama 'master' como rama principal por defecto, ahora esta
 -git push origin nombre_rama> --tags: envías los tags de la rama al repositorio remoto
 -git pull origin <nombre_rama>: Descarga los cambios del repositorio remoto y los fusiona automaticamente con la rama espejo del repositorio local
 -git pull origin <nombre_rama> --allow-unrelated-histories: realiza la fusión clásica del pull a fuerza.
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+llaves públicas y privadas:
+Generación de una llave a traves del algoritmo rsa
+	ssh-keygen -t rsa -b 4096 -C "correo con el que se desesa asociar la llave"
+	ssh-keygen: indica la generación de una llave de ssh
+	-t: especifíca el algoritmo a utilizar 
+	rsa: algortimo empleado
+	-b: indica la complejidad de la llave de manera matemática
+	-C (c en mayuscula): indica el correo al que está asociada la llave
+	passphrase utilizado: zionparty
+	
+eval $(ssh-agent -s): con este comando se activa el servidor de llaves el cual verifica que las llaves se estén enviando y recibiendo de manera autompatica
+
+para agregar la al entorno se realiza con el siguiente comando:
+	ssh-add <ruta donde está la llave>
+	se debe agregar la llave privada.
