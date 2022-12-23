@@ -88,7 +88,7 @@ github ya no maneja la rama 'master' como rama principal por defecto, ahora esta
 ------------------------------------------------------------------------------------
 -git merge <nombre_rama>: fusiona la rama nombre_rama con la rama en la cual se está situado en el momento.
 -git merge <nombre_rama> --allow-unrelated-histories: obliga a fusionar las ramas con el merge 
--git remote add origin URL: conecta el reposotirio de la URL con el repositorio local, la tiempo que da origen del repositorio remoto.
+-git remote add origin <URL>: conecta el reposotirio de la URL con el repositorio local, al tiempo que da origen del repositorio remoto.
 -git remote -v: lista las conexiones existentes. Donde realizar fetch y push.
 -git remote remove origin: Elimina la conexión con un repositorio remoto.
 -git push origin <nombre_rama>: envía la rama del repositorio local, al repositorio remoto.
@@ -110,6 +110,42 @@ Generación de una llave a traves del algoritmo rsa
 	
 eval $(ssh-agent -s): con este comando se activa el servidor de llaves el cual verifica que las llaves se estén enviando y recibiendo de manera autompatica
 
-para agregar la al entorno se realiza con el siguiente comando:
+para agregar la llave al servidor se realiza con el siguiente comando:
 	ssh-add <ruta donde está la llave>
 	se debe agregar la llave privada.
+	-----------------------------------------------------------------
+	En Mac
+Encender el “servidor” de llaves SSH de tu computadora:
+eval "$(ssh-agent -s)"
+Si usas una versión de OSX superior a Mac Sierra (v10.12), debes crear o modificar un archivo “config” en la carpeta de tu usuario con el siguiente contenido (ten cuidado con las mayúsculas):
+Host *
+
+AddKeysToAgent yes
+UseKeychain yes
+IdentityFile ruta-donde-guardaste-tu-llave-privada
+Añadir tu llave SSH al “servidor” de llaves SSH de tu computadora (en caso de error puedes ejecutar este mismo comando pero sin el argumento -K):
+ssh-add -K ruta-donde-guardaste-tu-llave-privada
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+Para configurar la SSH de github se debe realizar con el siguiente comando:
+	git remote set-url <nombre del repo> <url ssh de github>
+	
+	se verifica el cambio con el comando git remote -v
+	
+Comandos para copiar la llave SSH:
+-Mac:
+
+pbcopy < ~/.ssh/id_rsa.pub
+Windows (Git Bash):
+clip < ~/.ssh/id_rsa.pub
+Linux (Ubuntu):
+cat ~/.ssh/id_rsa.pub
+
+IMPORTANTE: si al momento de realizar el pull arroja que hay problemas para fusionar con la referencia master, debe ingresar a la carpeta .git y modificar en el archivo config, en la sección [branch " "], el valor final del merge por el nombre de la rama principal del proyecto
+	[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
